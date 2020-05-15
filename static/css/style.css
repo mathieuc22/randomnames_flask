@@ -1,0 +1,18 @@
+body {
+  background-color: #2e3440;
+  font-family: Hack, monospace;
+}
+
+h1 {
+  color: #d8dee9;
+}
+
+p {
+  color: #d8dee9;
+  text-align: center;
+}
+
+.container {
+  background-color: #3b4252;
+  text-align: center;
+}
