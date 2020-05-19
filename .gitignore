@@ -9,3 +9,6 @@ randomnames/tests/*.db
 
 geckodriver.log
 .cache/
+
+*.scss
+*.map

@@ -1,18 +1,22 @@
 body {
-  background-color: #2e3440;
+  background-color: #2E3440;
   font-family: Hack, monospace;
 }
 
 h1 {
-  color: #d8dee9;
+  color: #D8DEE9;
 }
 
 p {
-  color: #d8dee9;
-  text-align: center;
+  color: #D8DEE9;
 }
 
-.container {
-  background-color: #3b4252;
-  text-align: center;
+.container-fluid {
+  background-color: #3B4252;
 }
+
+.nord3 {
+  background-color: #4C566A;
+}
+
+/*# sourceMappingURL=style.css.map */

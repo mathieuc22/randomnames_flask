@@ -26,13 +26,17 @@
 
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
+      <h1 class="text-center">randomnames</h1>
+      <p class="text-center"><small class="text-muted">Made with <i class="fas fa-heart"></i> for developers</small></p>
+      <p class="lead">your cool name is:</p>
+    </div>
 
-      <h1 class="display-4">your cool name is:</h1>
-    </br>
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" value="{{ coolname }}" aria-label="CoolName" aria-describedby="basic-addon1" id="CoolName">
+    <div class="container-fluid nord3">
+      </br>
+      <div class="input-group mb-3">
 
+        <input type="text" class="form-control" value="{{ coolname }}" aria-label="CoolName" aria-describedby="basic-addon1" id="CoolName">
 
         <div class="input-group-append" id="button-addon4">
           <button class="btn btn-outline-secondary" type="button"  data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onClick="copy();">
@@ -41,8 +45,7 @@
           <button class="btn btn-outline-secondary" type="button" onClick="window.location.reload();"><i class="fas fa-redo"></i></button>
         </div>
 
-
-    </div>
+      </div>
     </br>
   </div>
 
