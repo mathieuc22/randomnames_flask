@@ -1,8 +1,11 @@
-__pycache__/
+__pycache__
 *.py[cod]
 
-
 bin/
-venv
+venv/
+randomnames/tests/*.db
 
 *.DS_Store
+
+geckodriver.log
+.cache/

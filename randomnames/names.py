@@ -1,8 +1,5 @@
-from flask import Flask, render_template
 from os.path import abspath, join, dirname
 import random
-
-app = Flask(__name__)
 
 adj_file = 'dico.adj.lst'
 adj_path = abspath(join(dirname(__file__), adj_file))
@@ -17,11 +14,3 @@ def get_name(filename):
 
 def get_full_name():
     return "{0} {1}".format(get_name(adj_path), get_name(name_path))
-
-@app.route('/')
-def index():
-    coolname = get_full_name()
-    return render_template('index.html', coolname=coolname)
-
-if __name__ == '__main__':
-    app.run()
