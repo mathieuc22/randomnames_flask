@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,30 +24,39 @@
     ></script>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
+      <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
 
-    <div class="container-fluid">
-      <h1 class="text-center">randomnames</h1>
-      <p class="text-center"><small class="text-muted">Made with <i class="fas fa-heart"></i> for developers</small></p>
-      <p class="lead">your cool name is:</p>
-    </div>
-
-    <div class="container-fluid nord3">
-      </br>
-      <div class="input-group mb-3">
-
-        <input type="text" class="form-control" value="{{ coolname }}" aria-label="CoolName" aria-describedby="basic-addon1" id="CoolName">
-
-        <div class="input-group-append" id="button-addon4">
-          <button class="btn btn-outline-secondary" type="button"  data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onClick="copy();">
-            <i class="fas fa-clipboard"></i>
-          </button>
-          <button class="btn btn-outline-secondary" type="button" onClick="window.location.reload();"><i class="fas fa-redo"></i></button>
-        </div>
-
+      <div class="container-fluid py-3">
+        <h1 class="text-center">random<span class="color-alt">names</span></h1>
+        <p class="text-center"><small class="text-muted">Made with <i class="fas fa-heart color-aurora"></i> for everyone</small></p>
       </div>
-    </br>
-  </div>
+
+      <div class="card w-75 mx-auto my-3">
+        <h5 class="card-header">Your cool name is:</h1>
+
+        <div class="card-body">
+          <div class="input-group y-3">
+
+            <input type="text" class="form-control" value="{{ coolname }}" aria-label="CoolName" aria-describedby="basic-addon1" id="CoolName">
+
+            <div class="input-group-append" id="button-addon4">
+              <button class="btn btn-outline-secondary" type="button"  data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onClick="copy();">
+                <i class="fas fa-clipboard"></i>
+              </button>
+              <button class="btn btn-outline-secondary" type="button" onClick="window.location.reload();"><i class="fas fa-redo"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <small class="text-muted">© 2020 randomnames</small>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

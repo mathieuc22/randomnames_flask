@@ -3,7 +3,7 @@ body {
   font-family: Hack, monospace;
 }
 
-h1 {
+h1, h5 {
   color: #D8DEE9;
 }
 
@@ -11,12 +11,44 @@ p {
   color: #D8DEE9;
 }
 
+input {
+  color: #2E3440;
+  border-color: #D8DEE9;
+}
+
+.color-alt {
+  color: #88C0D0;
+}
+
+.color-aurora {
+  color: #BF616A;
+}
+
+.btn {
+  color: #D8DEE9;
+  border-color: #D8DEE9;
+}
+
+.btn:hover {
+  background-color: #D8DEE9;
+  color: #3B4252;
+  border-color: #D8DEE9;
+}
+
 .container-fluid {
   background-color: #3B4252;
 }
 
-.nord3 {
-  background-color: #4C566A;
+.card {
+  background-color: #434C5E;
+}
+
+.card-header {
+  background-color: #3B4252;
+}
+
+.footer {
+  background-color: #3B4252;
 }
 
 /*# sourceMappingURL=style.css.map */
