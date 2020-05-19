@@ -1,4 +1,8 @@
 __pycache__/
+*.py[cod]
+
+
+bin/
 venv
-rawnames
-filter.py
+
+*.DS_Store

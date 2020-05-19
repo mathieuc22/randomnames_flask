@@ -10,6 +10,7 @@ Well, just hit the `reload` button to generate a new name and `copy` the name to
 
 To run locally:
 1. Install using git: clone the repository `git clone https://github.com/mathieuc22/coolnames.io.git`
+2. `cd coolnames.io`
 2. Create a virtualenv and activate it
 3. Install dependencies: `pip install -r requirements.txt`
 4. Run the server `python3 coolnames.py`
