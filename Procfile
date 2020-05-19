@@ -1,1 +1,1 @@
-web: gunicorn app:randomnames
+web: gunicorn randomnames:app
