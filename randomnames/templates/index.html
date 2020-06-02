@@ -28,9 +28,9 @@
       <!-- Begin page content -->
     <main role="main" class="flex-shrink-0">
 
-      <div class="container-fluid py-3">
-        <h1 class="text-center">random<span class="color-alt">names</span></h1>
-        <p class="text-center"><small class="text-muted">Made with <i class="fas fa-heart color-aurora"></i> for everyone</small></p>
+      <div class="container-fluid py-3 text-center">
+        <a class="user-select-none" href="{{ url_for('index') }}"><h1 class="text-center ">random<span class="color-alt">names</span></h1></a>
+        <small class="text-muted">Made with <i class="fas fa-heart color-aurora"></i> for everyone</small>
       </div>
 
       <div class="card w-75 mx-auto my-3">
@@ -39,16 +39,12 @@
         <div class="card-body">
           <div class="input-group y-3">
 
-            <input type="text" class="form-control" value="{{ coolname }}" aria-label="CoolName" aria-describedby="basic-addon1" id="CoolName">
-
+            <input type="text" class="form-control" value="{{ coolname }}" id="randomname">
             <div class="input-group-append" id="button-addon4">
-              <button class="btn btn-outline-secondary" type="button"  data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onClick="copy();">
+              <button class="btn btn-outline-secondary" type="button" id="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
                 <i class="fas fa-clipboard"></i>
               </button>
-              <button class="btn btn-outline-secondary" id="refresh" type="button"><i class="fas fa-redo"></i></button>
-              <form id="form">
-                  <input type="submit" value="Refresh">
-              </form>
+              <button class="btn btn-outline-secondary" type="button" id="refresh" data-toggle="tooltip" data-placement="top" title="Get a new name"><i class="fas fa-redo"></i></button>
             </div>
           </div>
         </div>
@@ -68,30 +64,28 @@
     <script>
 
       document.addEventListener('DOMContentLoaded', () => {
-          document.querySelector('#form').onsubmit = () => {
-              // Initialize new request
-              const request = new XMLHttpRequest();
-              request.open('GET', '/refresh');
-              // Callback function for when request completes
-              request.onload = () => {
-                  document.querySelector('#CoolName').innerHTML = coolname;
-              }
-              return false;
-          };
+        document.querySelector('#refresh').onclick = () => {
+          // Initialize new request
+          const request = new XMLHttpRequest();
+          request.open('GET', '/refresh');
+          // Callback function for when request completes
+          request.onload = () => {
+              const data = request.responseText;
+              document.querySelector('#randomname').value = data;
+          }
+          request.send();
+        };
+        document.querySelector('#copy').onclick = () => {
+          document.querySelector('#randomname').select();
+          document.querySelector('#randomname').setSelectionRange(0, 99999);
+          document.execCommand("copy");
+        };
 
       });
+
       $(function () {
       $('[data-toggle="tooltip"]').tooltip()
       })
-
-      function copy() {
-        var copyText = document.getElementById("CoolName");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-      }
-
-
 
     </script>
 

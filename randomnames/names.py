@@ -14,3 +14,9 @@ def get_name(filename):
 
 def get_full_name():
     return "{0} {1}".format(get_name(adj_path), get_name(name_path))
+
+def main():
+    print(get_full_name())
+
+if __name__ == "__main__":
+    main()
