@@ -7,13 +7,13 @@ app.config.from_object('config')
 
 @app.route('/')
 def index():
-    coolname = get_full_name()
-    return render_template('index.html', coolname=coolname)
+    randomname = get_full_name()
+    return render_template('index.html', randomname=randomname)
 
 @app.route('/refresh')
 def refresh():
-    coolname = get_full_name()
-    return coolname
+    randomname = get_full_name()
+    return randomname
 
 if __name__ == "__main__":
     app.run()

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ coolname }}</title>
+    <title>{{ randomname }}</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -39,7 +39,7 @@
         <div class="card-body">
           <div class="input-group y-3">
 
-            <input type="text" class="form-control" value="{{ coolname }}" id="randomname">
+            <input type="text" class="form-control" value="{{ randomname }}" id="randomname">
             <div class="input-group-append" id="button-addon4">
               <button class="btn btn-outline-secondary" type="button" id="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
                 <i class="fas fa-clipboard"></i>
@@ -72,6 +72,7 @@
           request.onload = () => {
               const data = request.responseText;
               document.querySelector('#randomname').value = data;
+              document.title = data;
           }
           request.send();
         };
