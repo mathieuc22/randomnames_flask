@@ -10,5 +10,10 @@ def index():
     coolname = get_full_name()
     return render_template('index.html', coolname=coolname)
 
+@app.route('/refresh')
+def refresh():
+    coolname = get_full_name()
+    return coolname
+
 if __name__ == "__main__":
     app.run()

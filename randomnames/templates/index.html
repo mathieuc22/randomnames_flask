@@ -45,7 +45,10 @@
               <button class="btn btn-outline-secondary" type="button"  data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onClick="copy();">
                 <i class="fas fa-clipboard"></i>
               </button>
-              <button class="btn btn-outline-secondary" type="button" onClick="window.location.reload();"><i class="fas fa-redo"></i></button>
+              <button class="btn btn-outline-secondary" id="refresh" type="button"><i class="fas fa-redo"></i></button>
+              <form id="form">
+                  <input type="submit" value="Refresh">
+              </form>
             </div>
           </div>
         </div>
@@ -64,6 +67,19 @@
 
     <script>
 
+      document.addEventListener('DOMContentLoaded', () => {
+          document.querySelector('#form').onsubmit = () => {
+              // Initialize new request
+              const request = new XMLHttpRequest();
+              request.open('GET', '/refresh');
+              // Callback function for when request completes
+              request.onload = () => {
+                  document.querySelector('#CoolName').innerHTML = coolname;
+              }
+              return false;
+          };
+
+      });
       $(function () {
       $('[data-toggle="tooltip"]').tooltip()
       })
@@ -74,6 +90,8 @@
         copyText.setSelectionRange(0, 99999);
         document.execCommand("copy");
       }
+
+
 
     </script>
 
