@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from .names import get_full_name
 
 app = Flask(__name__)
@@ -7,12 +7,33 @@ app.config.from_object('config')
 
 @app.route('/')
 def index():
-    randomname = get_full_name()
+    args = request.args
+    lower = ''
+    separator = ' '
+    number = ''
+    if 'separator' in args:
+        separator = args['separator']
+    if 'lower' in args:
+        lower = bool(args['lower'])
+    if 'number' in args:
+        number = int(args['number'])
+    randomname = get_full_name(lower, separator, number)
     return render_template('index.html', randomname=randomname)
 
 @app.route('/api/randomnames')
-def refresh():
-    return jsonify(get_full_name())
+def api():
+    args = request.args
+    lower = ''
+    separator = ' '
+    number = ''
+    if 'separator' in args:
+        separator = args['separator']
+    if 'lower' in args:
+        lower = bool(args['lower'])
+    if 'number' in args:
+        number = int(args['number'])
+    randomname = get_full_name(lower, separator, number)
+    return jsonify(randomname)
 
 if __name__ == "__main__":
     app.run()

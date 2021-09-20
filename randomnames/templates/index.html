@@ -47,6 +47,11 @@
               <button class="btn btn-outline-secondary" type="button" id="refresh" data-toggle="tooltip" data-placement="top" title="Get a new name"><i class="fas fa-redo"></i></button>
             </div>
           </div>
+          <div>
+            <input type="checkbox" id="lower" name="lower">
+            <label for="lower">Lower</label>
+          </div>
+
         </div>
       </div>
     </main>
@@ -64,8 +69,39 @@
     <script>
 
       document.addEventListener('DOMContentLoaded', () => {
+
+        const lowerCheckbox = document.querySelector('input[id="lower"]');
+
+        lowerCheckbox.onchange = function() {
+          if(lowerCheckbox.checked) {
+            API_URL = '/api/randomnames?lower=True'
+          } else {
+            API_URL = '/api/randomnames'
+          }
+          fetch(API_URL)
+          .then(function(response) {
+            if (response.status !== 200) {
+              console.log('Looks like there was a problem. Status Code: ' + response.status);
+              return;
+            }
+            // Get data from response and add data to input and title
+            response.json().then(function(data) {
+              document.querySelector('#randomname').value = data;
+              document.title = data;
+            });
+          })
+          .catch(function(err) {
+            console.log('Fetch Error :', err);
+          });
+        };
+
         document.querySelector('#refresh').onclick = () => {
-          fetch('/api/randomnames')
+          if(lowerCheckbox.checked) {
+            API_URL = '/api/randomnames?lower=True'
+          } else {
+            API_URL = '/api/randomnames'
+          }
+          fetch(API_URL)
           .then(function(response) {
             if (response.status !== 200) {
               console.log('Looks like there was a problem. Status Code: ' + response.status);
