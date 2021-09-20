@@ -65,16 +65,23 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#refresh').onclick = () => {
-          // Initialize new request
-          const request = new XMLHttpRequest();
-          request.open('GET', '/refresh');
-          // Callback function for when request completes
-          request.onload = () => {
-              const data = request.responseText;
+          fetch('/api/randomnames')
+          .then(function(response) {
+            if (response.status !== 200) {
+              console.log('Looks like there was a problem. Status Code: ' + response.status);
+              return;
+            }
+            // Get data from response and add data to input and title
+            response.json().then(function(data) {
               document.querySelector('#randomname').value = data;
               document.title = data;
+            });
           }
-          request.send();
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :', err);
+          });
+
         };
         document.querySelector('#copy').onclick = () => {
           document.querySelector('#randomname').select();
