@@ -83,5 +83,5 @@ async function fetchNamesJSON() {
     throw new Error(message);
   };
   const names = await response.json();
-  return names;
+  return names.name;
 }
