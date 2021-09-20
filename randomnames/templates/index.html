@@ -51,7 +51,18 @@
             <input type="checkbox" id="lower" name="lower">
             <label for="lower">Lower</label>
           </div>
-
+          <div>
+            <input type="text" id="separator" name="separator">
+            <label for="separator">Separator</label>
+          </div>
+          <div>
+            <input type="checkbox" id="noseparator" name="noseparator">
+            <label for="noseparator">No separator</label>
+          </div>
+          <div>
+            <input type="number" id="number" name="number" min="3" max="13">
+            <label for="number">Number of letters</label>
+          </div>
         </div>
       </div>
     </main>
@@ -65,72 +76,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="../static/js/main.js"></script>
     <script>
-
-      document.addEventListener('DOMContentLoaded', () => {
-
-        const lowerCheckbox = document.querySelector('input[id="lower"]');
-
-        lowerCheckbox.onchange = function() {
-          if(lowerCheckbox.checked) {
-            API_URL = '/api/randomnames?lower=True'
-          } else {
-            API_URL = '/api/randomnames'
-          }
-          fetch(API_URL)
-          .then(function(response) {
-            if (response.status !== 200) {
-              console.log('Looks like there was a problem. Status Code: ' + response.status);
-              return;
-            }
-            // Get data from response and add data to input and title
-            response.json().then(function(data) {
-              document.querySelector('#randomname').value = data;
-              document.title = data;
-            });
-          })
-          .catch(function(err) {
-            console.log('Fetch Error :', err);
-          });
-        };
-
-        document.querySelector('#refresh').onclick = () => {
-          if(lowerCheckbox.checked) {
-            API_URL = '/api/randomnames?lower=True'
-          } else {
-            API_URL = '/api/randomnames'
-          }
-          fetch(API_URL)
-          .then(function(response) {
-            if (response.status !== 200) {
-              console.log('Looks like there was a problem. Status Code: ' + response.status);
-              return;
-            }
-            // Get data from response and add data to input and title
-            response.json().then(function(data) {
-              document.querySelector('#randomname').value = data;
-              document.title = data;
-            });
-          }
-          )
-          .catch(function(err) {
-            console.log('Fetch Error :', err);
-          });
-
-        };
-        document.querySelector('#copy').onclick = () => {
-          document.querySelector('#randomname').select();
-          document.querySelector('#randomname').setSelectionRange(0, 99999);
-          document.execCommand("copy");
-        };
-
-      });
-
       $(function () {
       $('[data-toggle="tooltip"]').tooltip()
       })
-
     </script>
 
   </body>
