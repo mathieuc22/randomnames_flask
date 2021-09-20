@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from .names import get_full_name
 
 app = Flask(__name__)
@@ -10,10 +10,9 @@ def index():
     randomname = get_full_name()
     return render_template('index.html', randomname=randomname)
 
-@app.route('/refresh')
+@app.route('/api/randomnames')
 def refresh():
-    randomname = get_full_name()
-    return randomname
+    return jsonify(get_full_name())
 
 if __name__ == "__main__":
     app.run()
