@@ -22,8 +22,8 @@ def get_name(filename, size):
     except IndexError as idx_error:
         sys.exit(f'[ERR: {idx_error}] - No name with {size} characters, please try to increase the number of character')
 
-def get_full_name(lower, separator, size):
-    full_name = f'{get_name(adj_path,size)}{separator}{get_name(name_path,size)}'
+def get_full_name(lower=False, separator=' ', size=''):
+    full_name = f'{get_name(adj_path, size)}{separator}{get_name(name_path, size)}'
     if lower:
         return full_name.lower()
     else:
