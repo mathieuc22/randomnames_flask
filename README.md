@@ -13,5 +13,5 @@ To run locally:
 2. `cd coolnames.io`
 2. Create a virtualenv and activate it
 3. Install dependencies: `pip install -r requirements.txt`
-4. Run the server `python3 coolnames.py`
+4. Run the server `python3 run.py`
 3. Open http://127.0.0.1:5000 in a browser.
