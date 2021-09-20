@@ -12,3 +12,6 @@ geckodriver.log
 
 *.scss
 *.map
+
+Procfile
+config.py
