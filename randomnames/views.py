@@ -33,7 +33,7 @@ def api():
     if 'number' in args:
         number = int(args['number'])
     randomname = get_full_name(lower, separator, number)
-    return jsonify(randomname)
+    return jsonify({'name': randomname})
 
 if __name__ == "__main__":
     app.run()
