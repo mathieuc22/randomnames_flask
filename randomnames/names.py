@@ -12,15 +12,18 @@ name_path = abspath(join(dirname(__file__), name_file))
 # function to get a random name in a file
 def get_name(filename, size):
     # open the file strip the line and loop to 
-    with open(filename, 'r') as f:
-        names = [line.strip() for line in f]
-        if size:
-            names = [name for name in names if len(name) == size]
     try:
-        random_name = random.choice(names)
-        return random_name
-    except IndexError as idx_error:
-        sys.exit(f'[ERR: {idx_error}] - No name with {size} characters, please try to increase the number of character')
+        with open(filename, 'r') as f:
+            names = [line.strip() for line in f]
+            if size:
+                names = [name for name in names if len(name) == size]
+        try:
+            random_name = random.choice(names)
+            return random_name
+        except IndexError as idx_error:
+            sys.exit(f'[ERR: {idx_error}] - No name with {size} characters, please try to increase the number of character')
+    except FileNotFoundError as file_error:
+        sys.exit(f'[ERR: {file_error}] - File not found {filename}')
 
 def get_full_name(lower=False, separator=' ', size=''):
     full_name = f'{get_name(adj_path, size)}{separator}{get_name(name_path, size)}'
