@@ -34,17 +34,18 @@
       </div>
 
       <div class="card w-75 mx-auto my-3">
-        <h5 class="card-header">Your cool name is:</h1>
+        <h2 class="card-header">Your cool name</h2>
 
         <div class="card-body">
           <div class="input-group y-3">
-
-            <input type="text" class="form-control" value="{{ randomname }}" id="randomname">
+              <input type="text" class="form-control" value="{{ randomname }}" id="randomname" aria-label="Random name">
             <div class="input-group-append" id="button-addon4">
-              <button class="btn btn-outline-secondary" type="button" id="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
+              <button class="btn btn-outline-secondary" type="button" id="copy" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" aria-label="Copy to clipboard">
                 <i class="fas fa-clipboard"></i>
               </button>
-              <button class="btn btn-outline-secondary" type="button" id="refresh" data-toggle="tooltip" data-placement="top" title="Get a new name"><i class="fas fa-redo"></i></button>
+              <button class="btn btn-outline-secondary" type="button" id="refresh" data-toggle="tooltip" data-placement="top" title="Get a new name"  aria-label="Refresh">
+                <i class="fas fa-redo"></i>
+              </button>
             </div>
           </div>
           <div>

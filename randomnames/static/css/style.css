@@ -3,7 +3,7 @@ body {
   font-family: Hack, monospace;
 }
 
-h1, h5 {
+h1, h2, label {
   color: #D8DEE9;
 }
 
